@@ -1,0 +1,7 @@
+{
+  "version": 2,
+  "rewrites": [
+    { "source": "/api/videos", "destination": "/api/videos.js" },
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}
