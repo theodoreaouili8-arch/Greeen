@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "Video Gallery"
+version = "1.0.0"
+id = "artifacts/video-gallery"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 23148
+
+[services.development]
+run = "pnpm --filter @workspace/video-gallery run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/video-gallery", "run", "build" ]
+publicDir = "artifacts/video-gallery/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "23148"
+BASE_PATH = "/"
